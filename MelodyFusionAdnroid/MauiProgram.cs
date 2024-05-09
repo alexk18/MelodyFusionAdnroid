@@ -29,17 +29,15 @@ namespace MelodyFusionAdnroid
             builder.Services.AddHttpClient("MelodyFusion", client =>
             {
 
-                client.BaseAddress = new Uri("http://192.168.0.192:5045");
+                // Paste your server address here
+                client.BaseAddress = new Uri("https://192.168.1.2:7293");
 
             })
-                 .ConfigurePrimaryHttpMessageHandler(() => {
-                     var handler = new HttpClientHandler();
+                .ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler()
+                {
+                    ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator
+                });
 
-                     handler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; };
-
-                     return handler;
-                 })
-                 ;
             builder.Services.AddSingleton<MainPage>();
             builder.Services.AddSingleton<AuthService>();
             builder.Services.AddSingleton<RegisterService>();
