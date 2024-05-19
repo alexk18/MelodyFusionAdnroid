@@ -33,7 +33,7 @@ public partial class RegistrationPage : ContentPage
         var registrationResponse = await _registerService.Registr(registerRequest);
         if (registrationResponse != null)
         {
-            Console.WriteLine(registrationResponse.ToString());
+            await Shell.Current.GoToAsync(nameof(MainPage));
         }
         else
         {

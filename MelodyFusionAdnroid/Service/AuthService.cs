@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using MelodyFusionAdnroid.Models;
 using RestSharp;
 using System.Net.Http;
+using MelodyFusionAdnroid.Infrastructure;
 
 
 
@@ -15,10 +16,12 @@ namespace MelodyFusionAdnroid.Service
     public class AuthService
     {
         private readonly IHttpClientFactory _httpClientFactory;
+        private readonly LocalStorage _localStorage;
 
-        public AuthService(IHttpClientFactory httpClientFactory)
+        public AuthService(IHttpClientFactory httpClientFactory, LocalStorage localStorage)
         {
             _httpClientFactory = httpClientFactory;
+            _localStorage = localStorage;
         }
 
 
@@ -29,7 +32,7 @@ namespace MelodyFusionAdnroid.Service
                 // Используем IHttpClientFactory для создания экземпляра HttpClient
                 var httpClient = _httpClientFactory.CreateClient("MelodyFusion");
 
-                var url = /*EnviromentSettings.BaseUrl*/  "/api/Authentication/Login";
+                var url =  "/api/Authentication/Login";
 
                 // Сериализуем объект в формат JSON
                 var json = JsonConvert.SerializeObject(requestBody);

@@ -7,9 +7,22 @@
     Shell.FlyoutBehavior="Disabled"
     Title="MelodyFusionAdnroid">
 
+
+
     <ShellContent
-        Title="Home"
+        Title="Login"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
 
+    <!--<TabBar>
+
+        <ShellContent Title="Home"
+                          Route="HomePage"
+                          ContentTemplate="{DataTemplate local:Pages.HomePage}" />
+
+
+        <ShellContent Title="Profile"
+                          Route="ProfilePage"
+                          ContentTemplate="{DataTemplate local:Pages.ProfilePage}" />
+    </TabBar>-->
 </Shell>

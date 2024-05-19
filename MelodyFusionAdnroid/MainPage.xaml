@@ -3,6 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MelodyFusionAdnroid.MainPage">
 
+    <!--<Shell.TabBarIsVisible>
+        <OnIdiom x:TypeArguments="x:Boolean" Phone="False" />
+    </Shell.TabBarIsVisible>-->
+    
     <ScrollView>
         <Grid>
             <!-- Определение строк -->

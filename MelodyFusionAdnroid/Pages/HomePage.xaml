@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MelodyFusionAdnroid.Pages.HomePage"
+             Title="HomePage">
+    <VerticalStackLayout>
+        <Label 
+            Text="Добро пожаловать уебок!"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        
+        <Label 
+                Text="Введите поисковой запрос:"
+                VerticalOptions="End" 
+                HorizontalOptions="Center" />
+
+        <Button
+                x:Name="TestBtn"
+                Text="Move"
+                HorizontalOptions="Center"
+                Clicked="TestClicked" />
+    </VerticalStackLayout>
+</ContentPage>
