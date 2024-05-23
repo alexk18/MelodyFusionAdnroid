@@ -23,12 +23,12 @@ public partial class ProfilePage : ContentPage
 
     public async void MoveToUpdateClicked(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync(nameof(UpdateInfoPage));
+        await Shell.Current.GoToAsync($"//{nameof(UpdateInfoPage)}");
     }
 
     public async void MoveToChangeClicked(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync(nameof(UpdatePasswortPage));
+        await Shell.Current.GoToAsync($"//{nameof(UpdatePasswortPage)}");
     }
 
     public async void MoveToAdminClicked(object sender, EventArgs e)
@@ -45,8 +45,8 @@ public partial class ProfilePage : ContentPage
         _localStorage.Remove(LocalStorageKeys.Profile);
         if (userResponse != null)
         {
-            //Toast.MakeToast("Данные были обновлены").Show(TimeSpan.FromSeconds(2));
-            await Shell.Current.GoToAsync(nameof(UpdatePasswortPage));
+            //Toast.MakeToast("Данные удалены").Show(TimeSpan.FromSeconds(2));
+            await Shell.Current.GoToAsync($"//{nameof(MainPage)}");
         }
         else
         {
@@ -58,6 +58,8 @@ public partial class ProfilePage : ContentPage
     {
         AdminControll.IsVisible = false;
         AdminControll.IsEnabled = false;
+        SubscriptionBtn.IsEnabled = false;
+        SubscriptionBtn.IsVisible = false;
         string token = _localStorage[LocalStorageKeys.AuthToken].ToString();
         var tokenHandler = new JwtSecurityTokenHandler();
         var jwtToken = tokenHandler.ReadJwtToken(token);
@@ -66,21 +68,49 @@ public partial class ProfilePage : ContentPage
 
                 AdminControll.IsVisible = true;
                 AdminControll.IsEnabled = true;
+                SubscriptionBtn.IsEnabled = true;
+                SubscriptionBtn.IsVisible = true;
 
         }
         base.OnAppearing();
         var currentUser = await _userService.GetUserInfo();
+        if (currentUser.Photo == null)
+        {
+            currentUser.Photo = new PhotoResponse {
+                Uri = "https://melodyfusion.blob.core.windows.net/photo/pngtree-businessman.png",
+                Id = currentUser.Id
+            };
+        }
         var userProfileViewModel = new UserProfileViewModel()
         {
             FirstName = currentUser.FirstName,
             LastName = currentUser.LastName,
             Email = currentUser.Email,
-            UserName = currentUser.UserName
+            UserName = currentUser.UserName,
+            Url = currentUser.Photo.Uri
         };
         BindingContext = userProfileViewModel;
     }
 
 
+    public async void Logout(object sender, EventArgs e)
+    {
+        CurrentUser = null;
+        IsAuthenticated = false;
+        _localStorage.Remove(LocalStorageKeys.AuthToken);
+        _localStorage.Remove(LocalStorageKeys.Profile);
+        //Toast.MakeToast("Данные удалены").Show(TimeSpan.FromSeconds(2));
+        await Shell.Current.GoToAsync($"//{nameof(MainPage)}");
+    }
 
-
+    public async void UploadPhotoClicked(object sender, EventArgs e)
+    {
+        var result = await FilePicker.PickAsync(new PickOptions
+        {
+            PickerTitle = "Pick image please",
+            FileTypes = FilePickerFileType.Images
+        });
+        var stream = await result.OpenReadAsync();
+        var currentPhoto = await _userService.ChangePhoto(stream);
+    }
 }

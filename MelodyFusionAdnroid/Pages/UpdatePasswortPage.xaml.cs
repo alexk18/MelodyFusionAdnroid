@@ -39,4 +39,10 @@ public partial class UpdatePasswortPage : ContentPage
         }
 
     }
+
+    public async void BackToProfileClicked(object sender, EventArgs e)
+    {
+        //Toast.MakeToast("Данные были обновлены").Show(TimeSpan.FromSeconds(2));
+        await Shell.Current.GoToAsync($"//{nameof(ProfilePage)}");
+    }
 }

@@ -4,25 +4,54 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:MelodyFusionAdnroid"
-    Shell.FlyoutBehavior="Disabled"
-    Title="MelodyFusionAdnroid">
+    Shell.FlyoutBehavior="Flyout"
+    Title="MelodyFusionAdnroid"
+    Shell.NavBarIsVisible="False">
 
 
 
     <ShellContent
-        Title="Login"
+        Title=""
         ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+        Route="MainPage"
+        Shell.FlyoutBehavior="Disabled"
+        Shell.FlyoutItemIsVisible="False"/>
 
-    <!--<TabBar>
+    <ShellContent
+        Title=""
+        ContentTemplate="{DataTemplate local:Pages.RegistrationPage}"
+        Route="RegistrationPage"
+        Shell.FlyoutBehavior="Disabled"
+        Shell.FlyoutItemIsVisible="False"/>
 
+    <ShellContent
+        Title=""
+        ContentTemplate="{DataTemplate local:Pages.UpdateInfoPage}"
+        Route="UpdateInfoPage"
+        Shell.FlyoutBehavior="Disabled"
+        Shell.FlyoutItemIsVisible="False"/>
+
+    <ShellContent
+        Title=""
+        ContentTemplate="{DataTemplate local:Pages.UpdatePasswortPage}"
+        Route="UpdatePasswortPage"
+        Shell.FlyoutBehavior="Disabled"
+        Shell.FlyoutItemIsVisible="False"/>
+
+
+    <TabBar>
         <ShellContent Title="Home"
                           Route="HomePage"
-                          ContentTemplate="{DataTemplate local:Pages.HomePage}" />
-
-
-        <ShellContent Title="Profile"
+                          ContentTemplate="{DataTemplate local:Pages.HomePage}" 
+                          Shell.FlyoutBehavior="Disabled"
+                          Shell.FlyoutItemIsVisible="False"
+                          Icon="Image/home_pic.png"/>
+           <ShellContent Title="Profile"
                           Route="ProfilePage"
-                          ContentTemplate="{DataTemplate local:Pages.ProfilePage}" />
-    </TabBar>-->
+                          ContentTemplate="{DataTemplate local:Pages.ProfilePage}" 
+                          Shell.FlyoutBehavior="Disabled"
+                          Shell.FlyoutItemIsVisible="False"
+                          Icon="Image/profile_pic.png"/>
+    </TabBar>
+
 </Shell>

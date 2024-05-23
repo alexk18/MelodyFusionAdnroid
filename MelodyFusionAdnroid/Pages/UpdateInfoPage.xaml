@@ -9,17 +9,37 @@
         <Label 
             Text="Please change the user data and click Save button"
             VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            HorizontalOptions="Center"
+            FontSize="28" TextColor="White" HorizontalTextAlignment="Center" 
+            Margin="0,20,0,0"/>
 
-        <Entry x:Name="firstNameF" Text ="{Binding FirstName}" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="0,10,0,0">
+            <Frame HeightRequest="45" WidthRequest="300" Padding="0" HasShadow="True" BorderColor="White" HorizontalOptions="Center">
+                <Entry x:Name="firstNameF" Margin="10,0,0,0" VerticalOptions="Center" Text ="{Binding FirstName}" />
+            </Frame>
+        </StackLayout>
 
-        <Entry x:Name="lastNameT" Text="{Binding LastName}" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="0,10,0,0">
+            <Frame HeightRequest="45" WidthRequest="300" Padding="0" HasShadow="True" BorderColor="White" HorizontalOptions="Center">
+                <Entry x:Name="lastNameT" Margin="20,0,0,0" VerticalOptions="Center" Text ="{Binding LastName}" />
+            </Frame>
+        </StackLayout>
 
-        <Entry x:Name="EmailT" Text="{Binding Email}" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="0,10,0,0">
+            <Frame HeightRequest="45" WidthRequest="300" Padding="0" HasShadow="True" BorderColor="White" HorizontalOptions="Center">
+                <Entry x:Name="EmailT" Margin="20,0,0,0" VerticalOptions="Center" Text ="{Binding Email}" />
+            </Frame>
+        </StackLayout>
 
-        <Entry x:Name="userNameT" Text="{Binding UserName}" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="0,10,0,0">
+            <Frame HeightRequest="45" WidthRequest="300" Padding="0" HasShadow="True" BorderColor="White" HorizontalOptions="Center">
+                <Entry x:Name="userNameT" Margin="20,0,0,0" VerticalOptions="Center" Text ="{Binding UserName}" />
+            </Frame>
+        </StackLayout>
 
-        <Button Text="Save" Clicked="UpdateDataClicked" HorizontalOptions="FillAndExpand" Margin="0,20,0,0"/>
+        <Button Text="Save" BackgroundColor="#1D9D6F" Clicked="UpdateDataClicked" HorizontalOptions="Center" WidthRequest="300" Margin="0,20,0,0"/>
+
+        <Button Text="Back" Clicked="BackToProfileClicked" HorizontalOptions="Center" WidthRequest="300" Margin="0,10,0,0"/>
 
     </VerticalStackLayout>
 </ContentPage>

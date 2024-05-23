@@ -33,12 +33,17 @@ public partial class RegistrationPage : ContentPage
         var registrationResponse = await _registerService.Registr(registerRequest);
         if (registrationResponse != null)
         {
-            await Shell.Current.GoToAsync(nameof(MainPage));
+            await Shell.Current.GoToAsync($"//{nameof(MainPage)}");
         }
         else
         {
             throw new Exception("Registration failed");
         }
 
+    }
+    public async void LogMovClicked(object sender, EventArgs e)
+    {
+
+        await Shell.Current.GoToAsync($"//{nameof(MainPage)}");
     }
 }

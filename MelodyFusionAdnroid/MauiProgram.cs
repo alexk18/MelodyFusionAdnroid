@@ -27,7 +27,7 @@ namespace MelodyFusionAdnroid
             {
 
                 // Paste your server address here
-                client.BaseAddress = new Uri("https://192.168.0.173:7293");
+                client.BaseAddress = new Uri("https://192.168.0.192:7293");
 
             })
                 .ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler()

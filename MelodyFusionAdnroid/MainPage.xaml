@@ -3,117 +3,46 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MelodyFusionAdnroid.MainPage">
 
-    <!--<Shell.TabBarIsVisible>
-        <OnIdiom x:TypeArguments="x:Boolean" Phone="False" />
-    </Shell.TabBarIsVisible>-->
-    
-    <ScrollView>
-        <Grid>
-            <!-- Определение строк -->
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <!-- Строка для изображения -->
-                <RowDefinition Height="Auto" />
-                <!-- Строка для первого Label -->
-                <RowDefinition Height="Auto" />
-                <!-- Строка для второго Label -->
-                <RowDefinition Height="Auto" />
-                <!-- Строка первого инпута-->
-                <RowDefinition Height="Auto" />
-                <!-- Строка для третьего Label -->
-                <RowDefinition Height="Auto" />
-                <!-- Строка второго инпута-->
-                <RowDefinition Height="Auto" />
-                <!-- -->
-                <RowDefinition Height="Auto" />
-                <!-- Строка для третьего Label -->
-                <RowDefinition Height="Auto" />
-                <!-- Строка для Button -->
-                <RowDefinition Height="Auto" />
-                <!-- Строка для Button -->
-            </Grid.RowDefinitions>
+    <VerticalStackLayout 
+            Spacing="25" 
+            Padding="30,0" 
+            VerticalOptions="Center">
 
-            <!-- Изображение -->
-            <Image
-                Source="dotnet_bot.png"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                HeightRequest="80"
-                HorizontalOptions="Center"
-                VerticalOptions="Start"/>
+        <Image Source="Image/logo.png" HeightRequest="150" WidthRequest="150" />
 
-            <!-- Первый Label -->
-            <Label
-                Text="Авторизация"
-                SemanticProperties.HeadingLevel="Level1"
-                FontSize="32"
-                HorizontalOptions="Center"
-                Grid.Row="1" />
-            <!-- Второй Label -->
-            <Label
-                Text="Электронная почта"
-                SemanticProperties.HeadingLevel="Level4"
-                FontSize="14"
-                HorizontalOptions="Start"
-                Margin="10,30,0,0" 
-                Grid.Row="2" />
+        <VerticalStackLayout Spacing="5">
+            <Label Text="Melody Fusion" FontSize="28" TextColor="White" HorizontalTextAlignment="Center" />
+            <Label Text="Login to your account" FontSize="18" TextColor="White" HorizontalTextAlignment="Center" />
+        </VerticalStackLayout>
 
-            <Entry
-                x:Name="emailEntry"
-                Placeholder="Введи сюда"
-                HorizontalOptions="CenterAndExpand"
-                VerticalOptions="Center"
-                Grid.Row="3" />
+        <StackLayout Orientation="Horizontal">
+            <Frame ZIndex="1" HasShadow="True" BorderColor="White" HeightRequest="56" WidthRequest="56" CornerRadius="28">
+                <Image Source="Image/user_ic.png" HeightRequest="20" WidthRequest="20" />
+            </Frame>
+            <Frame HeightRequest="45" Margin="-20,0,0,0" Padding="0" HasShadow="True" BorderColor="White"  HorizontalOptions="FillAndExpand">
+                <Entry x:Name="emailEntry" Margin="20,0,0,0" VerticalOptions="Center" Placeholder="Enter your UserName" Keyboard="Text" />
+            </Frame>
+        </StackLayout>
 
-            <!-- Второй Label -->
-            <Label
-                Text="Пароль"
-                SemanticProperties.HeadingLevel="Level4"
-                FontSize="14"
-                HorizontalOptions="Start"
-                Margin="10,10,0,0" 
-                Grid.Row="4" />
+        <StackLayout Orientation="Horizontal">
+            <Frame ZIndex="1" HasShadow="True" BorderColor="White" HeightRequest="56" WidthRequest="56" CornerRadius="28">
+                <Image Source="Image/password_ic.png" HeightRequest="20" WidthRequest="20" />
+            </Frame>
+            <Frame HeightRequest="45" Margin="-20,0,0,0" Padding="0" HasShadow="True" BorderColor="White"  HorizontalOptions="FillAndExpand">
+                <Entry x:Name="passwordEntry" Margin="20,0,0,0" VerticalOptions="Center" Placeholder=" Enter your Password" IsPassword="True" />
+            </Frame>
+        </StackLayout>
 
-            <Entry
-                x:Name="passwordEntry"
-                Placeholder="Введи сюда"
-                HorizontalOptions="CenterAndExpand"
-                VerticalOptions="Center"
-                Grid.Row="5" />
+        <Button Text="Sign In" BackgroundColor="#1D9D6F" WidthRequest="100" CornerRadius="20" HorizontalOptions="Center" Clicked="AuthClicked" />
 
-            <!-- Заполняемая строка -->
-            <BoxView Grid.Row="6" BackgroundColor="Transparent" />
-
-            <!-- Второй Label -->
-            <Label
-                Text="Нет аккаунта?"
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
-                FontSize="14"
-                HorizontalOptions="CenterAndExpand"
-                VerticalOptions="Center"
-                Margin="0,50,0,20" 
-                Grid.Row="7">
+        <StackLayout Orientation="Horizontal" Spacing="5" HorizontalOptions="Center">
+            <Label Text="Don't have account?" TextColor="White" />
+            <Label Text="Sign Up here" TextColor="#50b3f2">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="RegMovClicked" />
+                </Label.GestureRecognizers>
             </Label>
+        </StackLayout>
+    </VerticalStackLayout>
 
-            <!-- Button -->
-            <Button
-                x:Name="LoginBtn"
-                Text="Войти"
-                SemanticProperties.Hint="Counts the number of times you click"
-                HorizontalOptions="Center"
-                Clicked="AuthClicked"
-                Grid.Row="8" />
-
-            <!-- Button -->
-            <Button
-                x:Name="RegistrBtn"
-                Text="Створити аккаунт"
-                SemanticProperties.Hint="Counts the number of times you click"
-                HorizontalOptions="Center"
-                Clicked="RegMovClicked"
-                Grid.Row="9" />
-
-
-        </Grid>
-    </ScrollView>
 </ContentPage>

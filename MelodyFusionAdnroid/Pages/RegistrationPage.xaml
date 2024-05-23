@@ -2,19 +2,58 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MelodyFusionAdnroid.Pages.RegistrationPage"
-             Title="RegistrationPage">
-    <VerticalStackLayout>
-        <Label Text="Регистрация" FontSize="24" HorizontalOptions="Center" Margin="0,20,0,10"/>
+             Title="">
+    <VerticalStackLayout 
+            Spacing="25" 
+            Padding="40,0" 
+            VerticalOptions="Center">
 
-        <Entry x:Name="firstNameEntry" Placeholder="Имя" Margin="0,10,0,10"/>
-        <Entry x:Name="lastNameEntry" Placeholder="Фамилия" Margin="0,0,0,10"/>
-        <Entry x:Name="userNameEntry" Placeholder="Имя пользователя" Margin="0,0,0,10"/>
-        <Entry x:Name="emailEntry" Placeholder="Email" Margin="0,0,0,10"/>
-        <Entry x:Name="passwordEntry" Placeholder="Пароль" IsPassword="True" Margin="0,0,0,10"/>
+        <VerticalStackLayout Spacing="5">
+            <Label Text="Sign up" FontSize="28" TextColor="White" HorizontalTextAlignment="Center" />
+            <Label Text="please fill out all fields" FontSize="18" TextColor="White" HorizontalTextAlignment="Center" />
+        </VerticalStackLayout>
+
+        <StackLayout Orientation="Horizontal">
+            <Frame HeightRequest="45" Margin="-20,0,0,0" Padding="0" HasShadow="True" BorderColor="White"  HorizontalOptions="FillAndExpand">
+                <Entry x:Name="firstNameEntry" Margin="20,0,0,0" VerticalOptions="Center" Placeholder="Enter your First Name" Keyboard="Text" />
+            </Frame>
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal">
+            <Frame HeightRequest="45" Margin="-20,0,0,0" Padding="0" HasShadow="True" BorderColor="White"  HorizontalOptions="FillAndExpand">
+                <Entry x:Name="lastNameEntry" Margin="20,0,0,0" VerticalOptions="Center" Placeholder="Enter your Last Name" Keyboard="Text" />
+            </Frame>
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal">
+            <Frame HeightRequest="45" Margin="-20,0,0,0" Padding="0" HasShadow="True" BorderColor="White"  HorizontalOptions="FillAndExpand">
+                <Entry x:Name="userNameEntry" Margin="20,0,0,0" VerticalOptions="Center" Placeholder="Enter your User Name" Keyboard="Text" />
+            </Frame>
+        </StackLayout>
 
 
-        <Button Text="Зарегистрироваться" Clicked="RegClicked" HorizontalOptions="FillAndExpand" Margin="0,20,0,0"/>
-        
-        
+        <StackLayout Orientation="Horizontal">
+            <Frame HeightRequest="45" Margin="-20,0,0,0" Padding="0" HasShadow="True" BorderColor="White"  HorizontalOptions="FillAndExpand">
+                <Entry x:Name="emailEntry" Margin="20,0,0,0" VerticalOptions="Center" Placeholder="Enter your Email" Keyboard="Email" />
+            </Frame>
+        </StackLayout>
+
+
+        <StackLayout Orientation="Horizontal">
+            <Frame HeightRequest="45" Margin="-20,0,0,0" Padding="0" HasShadow="True" BorderColor="White"  HorizontalOptions="FillAndExpand">
+                <Entry x:Name="passwordEntry" Margin="20,0,0,0" VerticalOptions="Center" Placeholder=" Enter your Password" IsPassword="True" />
+            </Frame>
+        </StackLayout>
+
+        <Button Text="Sign Up" BackgroundColor="#1D9D6F" WidthRequest="100" CornerRadius="20" HorizontalOptions="Center" Clicked="RegClicked" />
+
+        <StackLayout Orientation="Horizontal" Spacing="5" HorizontalOptions="Center">
+            <Label Text="Already have account?" TextColor="White" />
+            <Label Text="Sign In here" TextColor="#50b3f2">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="LogMovClicked" />
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
     </VerticalStackLayout>
 </ContentPage>

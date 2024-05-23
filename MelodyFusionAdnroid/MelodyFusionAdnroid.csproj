@@ -40,6 +40,9 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
+		<MauiImage Include="Image\home_pic.svg" />
+		<MauiImage Include="Image\password_ic.svg" />
+		<MauiImage Include="Image\profile_pic.svg" />
 		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
 
 		<!-- Splash Screen -->
@@ -57,10 +60,24 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Image\home_pic.svg" />
+	  <None Remove="Image\Logo.svg" />
+	  <None Remove="Image\password_ic.svg" />
+	  <None Remove="Image\profile_pic.svg" />
+	  <None Remove="Image\user_ic.svg" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiImage Include="Image\logo.svg" />
+	  <MauiImage Include="Image\user_ic.svg" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="Microsoft.Extensions.Http" Version="8.0.0" />
 		<PackageReference Include="Microsoft.Maui.Controls" Version="8.0.14" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.14" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
+		<PackageReference Include="Microsoft.Maui.Graphics" Version="8.0.40" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 		<PackageReference Include="RestSharp" Version="110.2.0" />
 		<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.5.1" />
@@ -71,9 +88,6 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\HomePage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Pages\MainPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\ProfilePage.xaml">

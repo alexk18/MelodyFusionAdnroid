@@ -41,7 +41,7 @@ namespace MelodyFusionAdnroid
                 _localStorage.AddOrUpdate(LocalStorageKeys.Profile, currentUser);
                 CurrentUser = currentUser;
                 IsAuthenticated = true;
-                await Shell.Current.GoToAsync(nameof(HomePage));
+                await Shell.Current.GoToAsync($"//{nameof(HomePage)}");
 
             }
             else
@@ -52,8 +52,8 @@ namespace MelodyFusionAdnroid
 
         public async void RegMovClicked(object sender, EventArgs e)
         {
-            //await Navigation.PushAsync(new RegistrationPage(_registerService));
-            await Shell.Current.GoToAsync(nameof(RegistrationPage));
+
+            await Shell.Current.GoToAsync($"//{nameof(RegistrationPage)}");
         }
     }
 

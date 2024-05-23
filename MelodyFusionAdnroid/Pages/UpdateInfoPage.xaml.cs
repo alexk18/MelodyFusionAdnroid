@@ -38,7 +38,7 @@ public partial class UpdateInfoPage : ContentPage
         if (userResponse != null)
         {
             //Toast.MakeToast("Данные были обновлены").Show(TimeSpan.FromSeconds(2));
-            await Shell.Current.GoToAsync(nameof(ProfilePage));
+            await Shell.Current.GoToAsync($"//{nameof(ProfilePage)}");
         }
         else
         {
@@ -59,5 +59,11 @@ public partial class UpdateInfoPage : ContentPage
             UserName = currentUser.UserName
         };
         BindingContext = userProfileViewModel;
+    }
+
+    public async void BackToProfileClicked(object sender, EventArgs e)
+    {
+            //Toast.MakeToast("Данные были обновлены").Show(TimeSpan.FromSeconds(2));
+            await Shell.Current.GoToAsync($"//{nameof(ProfilePage)}");
     }
 }

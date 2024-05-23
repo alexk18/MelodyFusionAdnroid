@@ -5,9 +5,10 @@
              Title="AdminControlPage">
     <VerticalStackLayout>
         <Label 
-            Text="Привет админ"
+            Text="Admin profile"
             VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            HorizontalOptions="Center"
+            FontSize="18" TextColor="White"/>
 
         <Entry x:Name="profileId" Placeholder="HERE WROTE USERID" IsPassword="false" Margin="0,0,0,10"/>
 
