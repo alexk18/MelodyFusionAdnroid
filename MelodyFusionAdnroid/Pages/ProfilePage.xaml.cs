@@ -30,10 +30,10 @@ public partial class ProfilePage : ContentPage
     {
         await Shell.Current.GoToAsync($"//{nameof(UpdatePasswortPage)}");
     }
-
+   
     public async void MoveToAdminClicked(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync(nameof(AdminControlPage));
+        await Shell.Current.GoToAsync($"//{nameof(AdminControlPage)}");
     }
 
     public async void DeleteProfileClicked(object sender, EventArgs e)
@@ -58,8 +58,6 @@ public partial class ProfilePage : ContentPage
     {
         AdminControll.IsVisible = false;
         AdminControll.IsEnabled = false;
-        SubscriptionBtn.IsEnabled = false;
-        SubscriptionBtn.IsVisible = false;
         string token = _localStorage[LocalStorageKeys.AuthToken].ToString();
         var tokenHandler = new JwtSecurityTokenHandler();
         var jwtToken = tokenHandler.ReadJwtToken(token);
@@ -68,8 +66,6 @@ public partial class ProfilePage : ContentPage
 
                 AdminControll.IsVisible = true;
                 AdminControll.IsEnabled = true;
-                SubscriptionBtn.IsEnabled = true;
-                SubscriptionBtn.IsVisible = true;
 
         }
         base.OnAppearing();
@@ -113,4 +109,10 @@ public partial class ProfilePage : ContentPage
         var stream = await result.OpenReadAsync();
         var currentPhoto = await _userService.ChangePhoto(stream);
     }
+
+    public async void SubClicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync($"//{nameof(SubPage)}");
+    }
+    
 }

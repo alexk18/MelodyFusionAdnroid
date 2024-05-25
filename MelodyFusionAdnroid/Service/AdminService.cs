@@ -167,7 +167,7 @@ namespace MelodyFusionAdnroid.Service
 
                 var httpClient = _httpClientFactory.CreateClient("MelodyFusion");
 
-                var url = $"/api/Admin/DeleteRole/{userId}";
+                var url = $"/api/Admin/BanUser/{userId}";
 
                 var bearerToken = _localStorage.GetValue<string>(LocalStorageKeys.AuthToken);
 

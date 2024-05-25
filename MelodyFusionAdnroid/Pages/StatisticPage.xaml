@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sys="clr-namespace:System;assembly=netstandard"
+             xmlns:microcharts="clr-namespace:Microcharts.Maui;assembly=Microcharts.Maui"
+             x:Class="MelodyFusionAdnroid.Pages.StatisticPage"
+             Title="StatisticPage">
+    
+    <ScrollView>
+    <VerticalStackLayout>
+        <Label 
+            Text="This is statistic page"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"  FontSize="28" TextColor="White" HorizontalTextAlignment="Center"  />
+        
+        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+            <Frame BorderColor="Black" Padding="10" Margin="20">
+                <StackLayout>
+                    <Label Text="From:" FontSize="16" />
+                    <DatePicker x:Name="datePickerFrom" />
+                </StackLayout>
+            </Frame>
+
+            <Frame BorderColor="Black" Padding="10" Margin="20">
+                <StackLayout>
+                    <Label Text="To:" FontSize="16" />
+                    <DatePicker x:Name="datePickerTo" Date="{x:Static sys:DateTime.UtcNow}" />
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+
+        <Button
+            x:Name="LoginStatiscticBtn"
+            Text="Get login info"
+            Clicked="LoginStatisctiClicked"
+            HorizontalOptions="Center"  BackgroundColor="#1D9D6F" WidthRequest="250" CornerRadius="20"  Margin="0,15,0,15"/>
+
+            <Button
+            x:Name="UserStatisticBtn"
+            Text="Get user info"
+            Clicked="UserStatisticClicked"
+            HorizontalOptions="Center"  BackgroundColor="#1D9D6F" WidthRequest="250" CornerRadius="20"  Margin="0,15,0,15"/>
+
+            <ContentView Grid.Row="1" Padding="10">
+            <microcharts:ChartView x:Name="chartView" HeightRequest="500" />
+        </ContentView>
+
+        <Button Text="Back" Clicked="BackToAdminClicked" HorizontalOptions="Center" WidthRequest="300" Margin="0,10,0,20"/>
+        
+    </VerticalStackLayout>
+   </ScrollView>
+</ContentPage>

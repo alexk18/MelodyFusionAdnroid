@@ -3,6 +3,7 @@ using MelodyFusionAdnroid.Infrastructure;
 using MelodyFusionAdnroid.Pages;
 using MelodyFusionAdnroid.Service;
 using Microsoft.Extensions.Logging;
+using Microcharts.Maui;
 
 namespace MelodyFusionAdnroid
 {
@@ -13,6 +14,7 @@ namespace MelodyFusionAdnroid
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .UseMicrocharts()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -47,6 +49,9 @@ namespace MelodyFusionAdnroid
             builder.Services.AddSingleton<UpdatePasswortPage>();
             builder.Services.AddSingleton<AdminControlPage>();
             builder.Services.AddSingleton<AdminService>();
+            builder.Services.AddSingleton<StatisticPage>();
+            builder.Services.AddSingleton<StatisticService>();
+            builder.Services.AddSingleton<SubPage>();
 
             return builder.Build();
         }

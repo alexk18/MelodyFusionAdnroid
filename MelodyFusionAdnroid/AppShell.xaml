@@ -38,6 +38,27 @@
         Shell.FlyoutBehavior="Disabled"
         Shell.FlyoutItemIsVisible="False"/>
 
+    <ShellContent
+        Title=""
+        ContentTemplate="{DataTemplate local:Pages.AdminControlPage}"
+        Route="AdminControlPage"
+        Shell.FlyoutBehavior="Disabled"
+        Shell.FlyoutItemIsVisible="False"/>
+
+    <ShellContent
+        Title=""
+        ContentTemplate="{DataTemplate local:Pages.StatisticPage}"
+        Route="StatisticPage"
+        Shell.FlyoutBehavior="Disabled"
+        Shell.FlyoutItemIsVisible="False"/>
+
+    <ShellContent
+        Title=""
+        ContentTemplate="{DataTemplate local:Pages.SubPage}"
+        Route="SubPage"
+        Shell.FlyoutBehavior="Disabled"
+        Shell.FlyoutItemIsVisible="False"/>
+
 
     <TabBar>
         <ShellContent Title="Home"

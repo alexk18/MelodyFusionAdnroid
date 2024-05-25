@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MelodyFusionAdnroid.Pages.SubPage"
+             Title="SubPage">
+    <VerticalStackLayout>
+        <StackLayout Padding="20" BackgroundColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+            <Frame BorderColor="LightGray" CornerRadius="10" Padding="20">
+                <StackLayout Spacing="10">
+                    <Label Text="Enter Payment Information" FontSize="20" HorizontalOptions="Center" />
+
+                    <!-- Поле для ввода номера карты -->
+                    <Entry Placeholder="Card Number" x:Name="CardNumberEntry" />
+
+                    <!-- Поле для ввода CVV -->
+                    <Entry Placeholder="CVV" x:Name="CvvEntry" />
+
+                    <!-- Поле для ввода даты истечения срока действия -->
+                    <Entry Placeholder="Expiration Date (MM/YY)" x:Name="ExpirationDateEntry" />
+
+                    <Button Text="Pay" Clicked="PayClicked" IsEnabled="False" HorizontalOptions="Center" />
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+        <Button Text="Back" Clicked="BackToProfileClicked" HorizontalOptions="Center" WidthRequest="300" Margin="0,10,0,20"/>
+    </VerticalStackLayout>
+</ContentPage>

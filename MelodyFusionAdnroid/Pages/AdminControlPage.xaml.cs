@@ -1,6 +1,7 @@
 using MelodyFusionAdnroid.Infrastructure;
 using MelodyFusionAdnroid.Models;
 using MelodyFusionAdnroid.Service;
+using MelodyFusionAdnroid.ViewModels;
 using Microsoft.Maui.ApplicationModel.Communication;
 
 namespace MelodyFusionAdnroid.Pages;
@@ -27,7 +28,7 @@ public partial class AdminControlPage : ContentPage
         {
             SearchRequest = "",
             PageFrom = 0,
-            PageSize = 5,
+            PageSize = 100,
         };
         var listUser = await _adminService.GetUserList(_userAllRequest);
 
@@ -36,7 +37,10 @@ public partial class AdminControlPage : ContentPage
 
     public async void MakeAdminClicked(object sender, EventArgs e)
     {
-        var userId = profileId.Text;
+        
+        var button = sender as Button;
+        var user = button?.BindingContext as UserResponse; // Получаем объект пользователя, связанный с кнопкой
+        var userId = user.Id.ToString(); // Заполняем блок Entry айдишником пользователя
         var _changeRoleRequest = new ChangeRoleRequest
         {
             UserId = userId,
@@ -45,7 +49,7 @@ public partial class AdminControlPage : ContentPage
         var changeRoleResponse = await _adminService.AddAdminRole(_changeRoleRequest);
         if (changeRoleResponse != null)
         {
-            await Shell.Current.GoToAsync(nameof(AdminControlPage));
+            //await Shell.Current.GoToAsync(nameof(AdminControlPage));
         }
         else
         {
@@ -54,7 +58,9 @@ public partial class AdminControlPage : ContentPage
     }
     public async void DeleteAdminClicked(object sender, EventArgs e)
     {
-        var userId = profileId.Text;
+        var button = sender as Button;
+        var user = button?.BindingContext as UserResponse; // Получаем объект пользователя, связанный с кнопкой
+        var userId = user.Id.ToString(); // Заполняем блок Entry айдишником пользователя
         var _changeRoleRequest = new ChangeRoleRequest
         {
             UserId = userId,
@@ -63,7 +69,7 @@ public partial class AdminControlPage : ContentPage
         var changeRoleResponse = await _adminService.DeleteAdminRole(_changeRoleRequest);
         if (changeRoleResponse != null)
         {
-            await Shell.Current.GoToAsync(nameof(AdminControlPage));
+            //await Shell.Current.GoToAsync(nameof(AdminControlPage));
         }
         else
         {
@@ -73,6 +79,41 @@ public partial class AdminControlPage : ContentPage
 
     public async void BanClicked(object sender, EventArgs e)
     {
+        var button = sender as Button;
+        var user = button?.BindingContext as UserResponse; // Получаем объект пользователя, связанный с кнопкой
+        var userId = user.Id.ToString(); // Заполняем блок Entry айдишником пользователя
+        var userResponse = await _adminService.BanUser(userId);
+        if (userResponse != null)
+        {
+            //await Shell.Current.GoToAsync(nameof(AdminControlPage));
+        }
+        else
+        {
+            throw new Exception("Registration failed");
+        }
+    }
 
+    // Функционал который уже не используется но удалять жалко , оставлю тут как в память о моём техническом прогрессе при разработке приложений MAUI
+
+    //private void SelectUserClicked(object sender, EventArgs e)
+    //{
+    //    var button = sender as Button;
+    //    var user = button?.BindingContext as UserResponse; // Получаем объект пользователя, связанный с кнопкой
+    //    if (user != null)
+    //    {
+    //        profileId.Text = user.Id.ToString(); // Заполняем блок Entry айдишником пользователя
+    //    }
+    //}
+
+    public async void BackToProfileClicked(object sender, EventArgs e)
+    {
+        //Toast.MakeToast("Данные были обновлены").Show(TimeSpan.FromSeconds(2));
+        await Shell.Current.GoToAsync($"//{nameof(ProfilePage)}");
+    }
+
+    public async void GoToStatisticClicked(object sender, EventArgs e)
+    {
+        //Toast.MakeToast("Данные были обновлены").Show(TimeSpan.FromSeconds(2));
+        await Shell.Current.GoToAsync($"//{nameof(StatisticPage)}");
     }
 }

@@ -3,28 +3,40 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MelodyFusionAdnroid.Pages.AdminControlPage"
              Title="AdminControlPage">
+    <ScrollView>
     <VerticalStackLayout>
+
         <Label 
             Text="Admin profile"
             VerticalOptions="Center" 
             HorizontalOptions="Center"
-            FontSize="18" TextColor="White"/>
+            FontSize="30" TextColor="White"  Margin="0,20,0,0"/>
 
-        <Entry x:Name="profileId" Placeholder="HERE WROTE USERID" IsPassword="false" Margin="0,0,0,10"/>
+        <Label 
+            Text="Please select option"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            FontSize="20" TextColor="White"  Margin="0,20,0,0"/>
 
+        <Button
+            x:Name="TakeUSerBtn"
+            Text="Show user list"
+            Clicked="ShowUserClicked"
+            HorizontalOptions="Center"  BackgroundColor="#1D9D6F" WidthRequest="250" CornerRadius="20"  Margin="0,15,0,15"/>
 
-        <Button Text="Make Admin" Clicked="MakeAdminClicked" HorizontalOptions="FillAndExpand" Margin="0,20,0,0"/>
-        <Button Text="Delete Admin" Clicked="DeleteAdminClicked" HorizontalOptions="FillAndExpand" Margin="0,20,0,0"/>
-        <Button Text="Ban" Clicked="BanClicked" HorizontalOptions="FillAndExpand" Margin="0,20,0,0"/>
-
-        <Button Text="Show User list" Clicked="ShowUserClicked" HorizontalOptions="FillAndExpand" Margin="0,20,0,0"/>
-        
-        <CollectionView x:Name="UserShowList" ItemsLayout="VerticalList" SelectionMode="Single">
+        <Button
+            x:Name="StatiscticBtn"
+            Text="Statistic page"
+            Clicked="GoToStatisticClicked"
+            HorizontalOptions="Center"  BackgroundColor="#1D9D6F" WidthRequest="250" CornerRadius="20"  Margin="0,15,0,15"/>
+        <CollectionView x:Name="UserShowList" ItemsLayout="VerticalList" SelectionMode="Single"  HeightRequest="600">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Frame>
+                    <Frame Margin="10,5" Padding="10" BorderColor="LightGray" CornerRadius="10">
                         <Grid Padding="10">
                             <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="Auto"/>
@@ -43,10 +55,29 @@
                             <Label Grid.Row="2" Grid.Column="1" Text="{Binding Email}"/>
                             <Label Grid.Row="3" Grid.Column="0" Text="Логин:" FontAttributes="Bold"/>
                             <Label Grid.Row="3" Grid.Column="1" Text="{Binding UserName}"/>
+                            <Button
+                                    x:Name="MakeAdminBtn"
+                                    Text="Make Admin"
+                                    Clicked="MakeAdminClicked"
+                                    Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" HorizontalOptions="Center"  BackgroundColor="#1D9D6F" WidthRequest="250" CornerRadius="20"  Margin="0,15,0,15"/>
+                            <Button
+                                    x:Name="DeleteAdminBtn"
+                                    Text="Delete Admin"
+                                    Clicked="DeleteAdminClicked"
+                                    Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" HorizontalOptions="Center"  BackgroundColor="Orange" WidthRequest="250" CornerRadius="20"  Margin="0,5,0,15"/>
+
+                            <Button
+                                    x:Name="BanUserBtn"
+                                    Text="Ban user"
+                                    Clicked="BanClicked"
+                                    Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" HorizontalOptions="Center"  BackgroundColor="Red" WidthRequest="250" CornerRadius="20"  Margin="0,5,0,5"/>
                         </Grid>
                     </Frame>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
+
+        <Button Text="Back" Clicked="BackToProfileClicked" HorizontalOptions="Center" WidthRequest="300" Margin="0,10,0,20"/>
     </VerticalStackLayout>
+   </ScrollView>
 </ContentPage>

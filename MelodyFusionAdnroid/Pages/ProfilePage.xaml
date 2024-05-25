@@ -101,6 +101,7 @@
         <Button
             x:Name="SubscriptionBtn"
             Text="Subscription"
+            Clicked="SubClicked"
             Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" HorizontalOptions="Center"   BackgroundColor="#1D9D6F" WidthRequest="250" CornerRadius="20"  Margin="0,15,0,15"/>
 
 
