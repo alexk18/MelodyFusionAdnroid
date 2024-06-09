@@ -4,10 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MelodyFusionAdnroid.Models;
 using RestSharp;
 using System.Net.Http;
 using MelodyFusionAdnroid.Infrastructure;
+using MelodyFusionAdnroid.Models.Response;
+using MelodyFusionAdnroid.Models.Request;
+using CommunityToolkit.Maui.Alerts;
 
 
 
@@ -54,15 +56,23 @@ namespace MelodyFusionAdnroid.Service
             }
             catch (HttpRequestException ex)
             {
-                // Обработка ошибок при выполнении HTTP-запроса
+                 //Обработка ошибок при выполнении HTTP-запроса
                 Console.WriteLine($"HTTP Error: {ex.Message}");
-                throw;
+                var loginResponse = new LoginResponse();
+                loginResponse = null;
+                return loginResponse;
+
+
             }
             catch (Exception ex)
             {
-                // Обработка других исключений
+                 //Обработка других исключений
                 Console.WriteLine($"Error: {ex.Message}");
-                throw;
+                //var toast = Toast.Make("Login failed,please check your data and try again", CommunityToolkit.Maui.Core.ToastDuration.Long, 24);
+                //toast.Show();
+                var loginResponse = new LoginResponse();
+                loginResponse = null;
+                return loginResponse;
             }
 
         }

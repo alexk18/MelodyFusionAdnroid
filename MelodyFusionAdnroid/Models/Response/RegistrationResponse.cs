@@ -1,4 +1,4 @@
-﻿namespace MelodyFusionAdnroid.Models
+﻿namespace MelodyFusionAdnroid.Models.Response
 {
     public class RegistrationResponse
     {

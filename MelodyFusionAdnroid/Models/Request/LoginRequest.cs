@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace MelodyFusionAdnroid.Models
+namespace MelodyFusionAdnroid.Models.Request
 {
     public class LoginRequest
     {

@@ -4,6 +4,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:MelodyFusionAdnroid"
+    xmlns:extension="clr-namespace:MelodyFusionAdnroid.TranslatorLan"
     Shell.FlyoutBehavior="Flyout"
     Title="MelodyFusionAdnroid"
     Shell.NavBarIsVisible="False">
@@ -61,13 +62,13 @@
 
 
     <TabBar>
-        <ShellContent Title="Home"
+        <ShellContent Title="{extension:TranslateExtention Key=Hm}"
                           Route="HomePage"
                           ContentTemplate="{DataTemplate local:Pages.HomePage}" 
                           Shell.FlyoutBehavior="Disabled"
                           Shell.FlyoutItemIsVisible="False"
                           Icon="Image/home_pic.png"/>
-           <ShellContent Title="Profile"
+        <ShellContent Title="{extension:TranslateExtention Key=Pf}"
                           Route="ProfilePage"
                           ContentTemplate="{DataTemplate local:Pages.ProfilePage}" 
                           Shell.FlyoutBehavior="Disabled"

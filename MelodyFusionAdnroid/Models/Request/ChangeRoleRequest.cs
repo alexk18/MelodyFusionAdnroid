@@ -1,5 +1,4 @@
-﻿
-namespace MelodyFusionAdnroid.Models
+﻿namespace MelodyFusionAdnroid.Models.Request
 {
     public class ChangeRoleRequest
     {

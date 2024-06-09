@@ -17,11 +17,10 @@
 
                     <!-- Поле для ввода даты истечения срока действия -->
                     <Entry Placeholder="Expiration Date (MM/YY)" x:Name="ExpirationDateEntry" />
-
-                    <Button Text="Pay" Clicked="PayClicked" IsEnabled="False" HorizontalOptions="Center" />
                 </StackLayout>
             </Frame>
         </StackLayout>
+        <Button Text="Pay" Clicked="PayClicked" HorizontalOptions="Center" />
         <Button Text="Back" Clicked="BackToProfileClicked" HorizontalOptions="Center" WidthRequest="300" Margin="0,10,0,20"/>
     </VerticalStackLayout>
 </ContentPage>

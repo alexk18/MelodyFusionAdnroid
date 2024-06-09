@@ -1,5 +1,6 @@
 ﻿using MelodyFusionAdnroid.Infrastructure;
-using MelodyFusionAdnroid.Models;
+using MelodyFusionAdnroid.Models.Request;
+using MelodyFusionAdnroid.Models.Response;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;

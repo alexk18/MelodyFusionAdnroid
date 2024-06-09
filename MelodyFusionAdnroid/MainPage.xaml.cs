@@ -3,6 +3,9 @@ using MelodyFusionAdnroid.Models;
 using MelodyFusionAdnroid.Service;
 using MelodyFusionAdnroid.Infrastructure;
 using Newtonsoft.Json;
+using MelodyFusionAdnroid.Models.Response;
+using MelodyFusionAdnroid.Models.Request;
+using CommunityToolkit.Maui.Alerts;
 
 namespace MelodyFusionAdnroid
 {
@@ -46,7 +49,9 @@ namespace MelodyFusionAdnroid
             }
             else
             {
-                throw new Exception("Login failed");
+                var toast = Toast.Make("Login failed,please check your data and try again", CommunityToolkit.Maui.Core.ToastDuration.Long, 24);
+                toast.Show();
+              
             }
         }
 

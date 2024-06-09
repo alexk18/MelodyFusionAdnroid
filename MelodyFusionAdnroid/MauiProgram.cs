@@ -4,6 +4,7 @@ using MelodyFusionAdnroid.Pages;
 using MelodyFusionAdnroid.Service;
 using Microsoft.Extensions.Logging;
 using Microcharts.Maui;
+using CommunityToolkit.Maui;
 
 namespace MelodyFusionAdnroid
 {
@@ -14,6 +15,7 @@ namespace MelodyFusionAdnroid
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .UseMauiCommunityToolkit()
                 .UseMicrocharts()
                 .ConfigureFonts(fonts =>
                 {
@@ -29,7 +31,7 @@ namespace MelodyFusionAdnroid
             {
 
                 // Paste your server address here
-                client.BaseAddress = new Uri("https://192.168.0.192:7293");
+                client.BaseAddress = new Uri("https://192.168.0.173:7293");
 
             })
                 .ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler()
@@ -52,6 +54,9 @@ namespace MelodyFusionAdnroid
             builder.Services.AddSingleton<StatisticPage>();
             builder.Services.AddSingleton<StatisticService>();
             builder.Services.AddSingleton<SubPage>();
+            builder.Services.AddSingleton<PaymentService>();
+            builder.Services.AddSingleton<SongService>();
+
 
             return builder.Build();
         }

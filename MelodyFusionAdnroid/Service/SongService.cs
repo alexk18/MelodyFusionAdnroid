@@ -11,32 +11,25 @@ using System.Threading.Tasks;
 
 namespace MelodyFusionAdnroid.Service
 {
-    public class StatisticService
+    public class SongService
     {
         private readonly IHttpClientFactory _httpClientFactory;
         private readonly LocalStorage _localStorage;
 
-        public StatisticService(IHttpClientFactory httpClientFactory, LocalStorage localStorage)
+        public SongService(IHttpClientFactory httpClientFactory, LocalStorage localStorage)
         {
             _httpClientFactory = httpClientFactory;
             _localStorage = localStorage;
         }
 
-        public async Task<LoginStatisticResponse> GetLoginInfo(StatisticRequest request)
+        public async Task<List<SongDbResponse>> GetSongsBySearchString(string searchString)
         {
             try
             {
 
-                var dateFrom = request.DateFrom;
-                var dateTo =  request.DateTo;
-
-                // Форматируем даты как строки в формате yyyy-MM-dd
-                string dateFromString = dateFrom.ToString("yyyy-MM-dd");
-                string dateToString = dateTo.ToString("yyyy-MM-dd");
-
                 var httpClient = _httpClientFactory.CreateClient("MelodyFusion");
 
-                var url = $"/api/Statistic/GetLoginInfo?DateFrom={dateFromString}&DateTo={dateToString}";
+                var url = $"/api/Song?searchString={searchString}";
 
                 var bearerToken = _localStorage.GetValue<string>(LocalStorageKeys.AuthToken);
 
@@ -51,9 +44,9 @@ namespace MelodyFusionAdnroid.Service
 
                 var responseContent = await response.Content.ReadAsStringAsync();
 
-                var statisticLogResponse = JsonConvert.DeserializeObject<LoginStatisticResponse>(responseContent);
+                var songResponse = JsonConvert.DeserializeObject<List<SongDbResponse>>(responseContent);
 
-                return statisticLogResponse ;
+                return songResponse;
             }
             catch (HttpRequestException ex)
             {
@@ -70,21 +63,14 @@ namespace MelodyFusionAdnroid.Service
 
         }
 
-        public async Task<SubscriptionStatisticResponse> GetUserInfo(StatisticRequest request)
+        public async Task<List<SongSpotifyResponse>> GetRecommendation(SongRecommendationRequest songRecommendationRequest)
         {
             try
             {
 
-                var dateFrom = request.DateFrom;
-                var dateTo = request.DateTo;
-
-                // Форматируем даты как строки в формате yyyy-MM-dd
-                string dateFromString = dateFrom.ToString("yyyy-MM-dd");
-                string dateToString = dateTo.ToString("yyyy-MM-dd");
-
                 var httpClient = _httpClientFactory.CreateClient("MelodyFusion");
 
-                var url = $"/api/Statistic/GetUserInfo?DateFrom={dateFromString}&DateTo={dateToString}";
+                var url = $"/get-recommendation?FirstSongId={songRecommendationRequest.FirstSongId}&SecondSongId={songRecommendationRequest.SecondSongId}";
 
                 var bearerToken = _localStorage.GetValue<string>(LocalStorageKeys.AuthToken);
 
@@ -99,9 +85,9 @@ namespace MelodyFusionAdnroid.Service
 
                 var responseContent = await response.Content.ReadAsStringAsync();
 
-                var statisticLogResponse = JsonConvert.DeserializeObject<SubscriptionStatisticResponse>(responseContent);
+                var songSpotifyResponse = JsonConvert.DeserializeObject<List<SongSpotifyResponse>>(responseContent);
 
-                return statisticLogResponse;
+                return songSpotifyResponse;
             }
             catch (HttpRequestException ex)
             {

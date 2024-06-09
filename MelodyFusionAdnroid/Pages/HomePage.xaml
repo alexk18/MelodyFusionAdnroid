@@ -1,23 +1,109 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:extension="clr-namespace:MelodyFusionAdnroid.TranslatorLan"
              x:Class="MelodyFusionAdnroid.Pages.HomePage"
              Title="HomePage">
-    <VerticalStackLayout>
+    <ScrollView>
+        <VerticalStackLayout>
         <Label 
-            Text="Добро пожаловать уебок!"
+            Text="{extension:TranslateExtention Key=Obtain}"
             VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            HorizontalOptions="Center"  FontSize="24" TextColor="White" HorizontalTextAlignment="Center"  />
         
         <Label 
-                Text="Введите поисковой запрос:"
+                Text="{extension:TranslateExtention Key=Fp}"
                 VerticalOptions="End" 
-                HorizontalOptions="Center" />
+                HorizontalOptions="Center" FontSize="20" TextColor="White" HorizontalTextAlignment="Center" Margin="0,20,0,20" />
+
+        <StackLayout HorizontalOptions="Center">
+            <Frame HeightRequest="45" WidthRequest="250" Margin="0" Padding="0" HasShadow="True" BorderColor="LightGray" CornerRadius="10">
+                <Entry 
+                x:Name="firstTrackEntry" 
+                WidthRequest="230" 
+                Margin="10,0" 
+                VerticalOptions="Center" 
+                Placeholder="{extension:TranslateExtention Key=Fpp}" 
+                Keyboard="Text" 
+                TextColor="Black"
+                TextChanged="OnEntryTextChanged" />
+            </Frame>
+            <Frame x:Name="pickerFrame" HeightRequest="45" WidthRequest="250" Margin="0,10,0,0" Padding="0" HasShadow="True" BorderColor="LightGray" CornerRadius="10" IsVisible="False">
+                 <Picker x:Name="trackPicker" Title="{extension:TranslateExtention Key=SelTra}" HorizontalOptions="Center" SelectedIndexChanged="OnPickerSelectedIndexChanged" />
+            </Frame>
+        </StackLayout>
+
+        <Label 
+                Text="{extension:TranslateExtention Key=Sp}"
+                VerticalOptions="End" 
+                HorizontalOptions="Center" FontSize="20" TextColor="White" HorizontalTextAlignment="Center" Margin="0,20,0,20"  />
+
+
+        <StackLayout HorizontalOptions="Center">
+                <Frame HeightRequest="45" WidthRequest="250" Margin="0" Padding="0" HasShadow="True" BorderColor="LightGray" CornerRadius="10">
+                    <Entry 
+                x:Name="secondTrackEntry" 
+                WidthRequest="230" 
+                Margin="10,0" 
+                VerticalOptions="Center" 
+                Placeholder="{extension:TranslateExtention Key=Spp}" 
+                Keyboard="Text" 
+                TextColor="Black"
+                TextChanged="OnEntryTextChanged_sec" />
+                </Frame>
+                <Frame x:Name="pickerFrame_sec" HeightRequest="45" WidthRequest="250" Margin="0,10,0,0" Padding="0" HasShadow="True" BorderColor="LightGray" CornerRadius="10" IsVisible="False">
+                    <Picker x:Name="trackPicker_sec" Title="{extension:TranslateExtention Key=SelTra}" HorizontalOptions="Center" SelectedIndexChanged="OnPickerSelectedIndexChanged_sec" />
+            </Frame>
+        </StackLayout>
+
 
         <Button
-                x:Name="TestBtn"
-                Text="Move"
+                x:Name="StartBtn"
+                Text="{extension:TranslateExtention Key=Start}"
                 HorizontalOptions="Center"
-                Clicked="TestClicked" />
+                Clicked="StartClicked"  BackgroundColor="#1D9D6F" WidthRequest="100" CornerRadius="20"  Margin="0,20,0,20"/>
+
+            <CollectionView x:Name="RecomendedTrackList" ItemsLayout="VerticalList" SelectionMode="Single"  HeightRequest="400"  Margin="0,0,0,20">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Margin="10,5" Padding="10" BorderColor="LightGray" CornerRadius="10">
+                        <Grid Padding="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width=".3*"/>
+                                <ColumnDefinition Width=".7*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Row="0" Grid.Column="1" Text="{Binding Name}" 
+                               FontSize="18" 
+                               FontAttributes="Bold" 
+                               TextColor="{AppThemeBinding Light=Black, Dark=White}" 
+                               VerticalOptions="Center"  Margin="20,0,0,0" />
+                            <Label Grid.Row="1" Grid.Column="1" Text="{Binding ArtistName}" 
+                               FontSize="16" 
+                               TextColor="{AppThemeBinding Light=Black, Dark=White}" 
+                               VerticalOptions="Center" Margin="30,0,0,0"/>
+                            <Border WidthRequest="80"
+                                    HeightRequest="80"
+                                    Stroke="{AppThemeBinding Light=Dark, Dark=Black}"
+                                    StrokeThickness="4"
+                                    BackgroundColor="{AppThemeBinding Light=Orange, Dark=Pink}"
+                                    Margin="10,10,0 ,0"
+                                    StrokeShape="RoundRectangle 50"
+                                    Grid.Row="0" Grid.Column="0" Grid.RowSpan="2">
+                                                <Image
+                                    Source="{Binding PreviewUrl}"
+                                    HeightRequest="110"
+                                    WidthRequest="110"
+                                Aspect="AspectFill"/>
+                            </Border>
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
     </VerticalStackLayout>
-</ContentPage>
+    </ScrollView>
+</ContentPage>

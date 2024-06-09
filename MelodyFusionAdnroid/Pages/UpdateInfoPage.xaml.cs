@@ -1,5 +1,8 @@
+using CommunityToolkit.Maui.Alerts;
 using MelodyFusionAdnroid.Infrastructure;
 using MelodyFusionAdnroid.Models;
+using MelodyFusionAdnroid.Models.Request;
+using MelodyFusionAdnroid.Models.Response;
 using MelodyFusionAdnroid.Service;
 using MelodyFusionAdnroid.ViewModels;
 using System.Threading.Tasks;
@@ -37,7 +40,8 @@ public partial class UpdateInfoPage : ContentPage
         var userResponse = await _userService.UpdateUserInfo(userRequest);
         if (userResponse != null)
         {
-            //Toast.MakeToast("Данные были обновлены").Show(TimeSpan.FromSeconds(2));
+            var toast = Toast.Make("Data has been updated", CommunityToolkit.Maui.Core.ToastDuration.Long, 24);
+            toast.Show();
             await Shell.Current.GoToAsync($"//{nameof(ProfilePage)}");
         }
         else

@@ -1,5 +1,8 @@
+using CommunityToolkit.Maui.Alerts;
 using MelodyFusionAdnroid.Infrastructure;
 using MelodyFusionAdnroid.Models;
+using MelodyFusionAdnroid.Models.Request;
+using MelodyFusionAdnroid.Models.Response;
 using MelodyFusionAdnroid.Service;
 
 namespace MelodyFusionAdnroid.Pages;
@@ -30,7 +33,8 @@ public partial class UpdatePasswortPage : ContentPage
         var userResponse = await _userService.UpdatePassword(passwordRequest);
         if (userResponse != null)
         {
-            //Toast.MakeToast("Данные были обновлены").Show(TimeSpan.FromSeconds(2));
+            var toast = Toast.Make("Data has been updated", CommunityToolkit.Maui.Core.ToastDuration.Long, 24);
+            toast.Show();
             await Shell.Current.GoToAsync(nameof(ProfilePage));
         }
         else

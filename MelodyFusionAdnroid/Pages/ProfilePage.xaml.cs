@@ -1,7 +1,10 @@
 using MelodyFusionAdnroid.Infrastructure;
 using MelodyFusionAdnroid.Models;
+using MelodyFusionAdnroid.Models.Response;
 using MelodyFusionAdnroid.Service;
+using MelodyFusionAdnroid.TranslatorLan;
 using MelodyFusionAdnroid.ViewModels;
+using System.Globalization;
 using System.IdentityModel.Tokens.Jwt;
 
 
@@ -18,7 +21,6 @@ public partial class ProfilePage : ContentPage
 		InitializeComponent();
         _localStorage = localStorage;
         _userService = userService;
-
     }
 
     public async void MoveToUpdateClicked(object sender, EventArgs e)
@@ -114,5 +116,25 @@ public partial class ProfilePage : ContentPage
     {
         await Shell.Current.GoToAsync($"//{nameof(SubPage)}");
     }
-    
+
+    private void OnLanguageChanged(object sender, CheckedChangedEventArgs e)
+    {
+        if (e.Value)
+        {
+            RadioButton rb = sender as RadioButton;
+            if (rb != null)
+            {
+                if (rb == radioButtonEnglish)
+                {
+                    Translator.Instance.CultureInfo = new CultureInfo("");
+                    Translator.Instance.OnPropertyChanged();
+                }
+                else if (rb == radioButtonUa)
+                {
+                    Translator.Instance.CultureInfo = new CultureInfo("uk-UA");
+                    Translator.Instance.OnPropertyChanged();
+                }
+            }
+        }
+    }
 }

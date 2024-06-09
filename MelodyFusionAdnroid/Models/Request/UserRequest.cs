@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace MelodyFusionAdnroid.Models
+namespace MelodyFusionAdnroid.Models.Request
 {
     public class UserRequest
     {
@@ -16,8 +16,8 @@ namespace MelodyFusionAdnroid.Models
         [StringLength(18, MinimumLength = 8)]
         public string userName { get; set; } = string.Empty;
 
-        [Required] 
-        [EmailAddress] 
+        [Required]
+        [EmailAddress]
         public string email { get; set; } = string.Empty;
     }
 }
