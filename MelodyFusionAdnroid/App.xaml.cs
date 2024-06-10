@@ -1,6 +1,6 @@
-﻿using MelodyFusionAdnroid.Infrastructure;
-using MelodyFusionAdnroid.Models;
-using MelodyFusionAdnroid.Service;
+﻿using MelodyFusion.DLL.Infrastructure;
+using MelodyFusion.DLL.Models;
+using MelodyFusion.DLL.Service;
 using System.Globalization;
 using MelodyFusionAdnroid.TranslatorLan;
 

@@ -1,7 +1,7 @@
-using MelodyFusionAdnroid.Infrastructure;
-using MelodyFusionAdnroid.Models;
-using MelodyFusionAdnroid.Models.Response;
-using MelodyFusionAdnroid.Service;
+using MelodyFusion.DLL.Infrastructure;
+using MelodyFusion.DLL.Models;
+using MelodyFusion.DLL.Models.Response;
+using MelodyFusion.DLL.Service;
 using MelodyFusionAdnroid.TranslatorLan;
 using MelodyFusionAdnroid.ViewModels;
 using System.Globalization;

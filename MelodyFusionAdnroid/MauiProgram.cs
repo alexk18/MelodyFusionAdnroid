@@ -1,7 +1,7 @@
 ﻿
-using MelodyFusionAdnroid.Infrastructure;
+using MelodyFusion.DLL.Infrastructure;
 using MelodyFusionAdnroid.Pages;
-using MelodyFusionAdnroid.Service;
+using MelodyFusion.DLL.Service;
 using Microsoft.Extensions.Logging;
 using Microcharts.Maui;
 using CommunityToolkit.Maui;

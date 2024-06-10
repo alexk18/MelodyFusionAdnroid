@@ -1,8 +1,7 @@
-using MelodyFusionAdnroid.Models;
-using MelodyFusionAdnroid.Models.Request;
-using MelodyFusionAdnroid.Service;
+using MelodyFusion.DLL.Models;
+using MelodyFusion.DLL.Models.Request;
+using MelodyFusion.DLL.Service;
 using Microsoft.Maui.Animations;
-//using static Android.Icu.Text.CaseMap;
 
 namespace MelodyFusionAdnroid.Pages;
 

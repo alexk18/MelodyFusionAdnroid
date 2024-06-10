@@ -1,10 +1,10 @@
 ﻿using MelodyFusionAdnroid.Pages;
-using MelodyFusionAdnroid.Models;
-using MelodyFusionAdnroid.Service;
-using MelodyFusionAdnroid.Infrastructure;
+using MelodyFusion.DLL.Models;
+using MelodyFusion.DLL.Service;
+using MelodyFusion.DLL.Infrastructure;
 using Newtonsoft.Json;
-using MelodyFusionAdnroid.Models.Response;
-using MelodyFusionAdnroid.Models.Request;
+using MelodyFusion.DLL.Models.Response;
+using MelodyFusion.DLL.Models.Request;
 using CommunityToolkit.Maui.Alerts;
 
 namespace MelodyFusionAdnroid

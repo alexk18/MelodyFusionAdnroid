@@ -1,9 +1,9 @@
-using MelodyFusionAdnroid.Models;
-using MelodyFusionAdnroid.Service;
+using MelodyFusion.DLL.Models;
+using MelodyFusion.DLL.Service;
 using Microcharts;
 using SkiaSharp;
 using Microcharts.Maui;
-using MelodyFusionAdnroid.Models.Request;
+using MelodyFusion.DLL.Models.Request;
 
 namespace MelodyFusionAdnroid.Pages;
 

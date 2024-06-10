@@ -1,9 +1,9 @@
 using CommunityToolkit.Maui.Alerts;
-using MelodyFusionAdnroid.Infrastructure;
-using MelodyFusionAdnroid.Models;
-using MelodyFusionAdnroid.Models.Request;
-using MelodyFusionAdnroid.Models.Response;
-using MelodyFusionAdnroid.Service;
+using MelodyFusion.DLL.Infrastructure;
+using MelodyFusion.DLL.Models;
+using MelodyFusion.DLL.Models.Request;
+using MelodyFusion.DLL.Models.Response;
+using MelodyFusion.DLL.Service;
 
 namespace MelodyFusionAdnroid.Pages;
 
