@@ -26,7 +26,7 @@ public partial class HomePage : ContentPage
     }
 
     private async void OnEntryTextChanged(object sender, TextChangedEventArgs e)
-  {
+    {
         if (e.NewTextValue.Length >= 3)
         {
             pickerFrame.IsVisible = true;
@@ -96,7 +96,6 @@ public partial class HomePage : ContentPage
         }
         else
         {
-            // Обработка ситуации, когда трек не найден
             _firstTrackId = null;
         }
 
@@ -106,7 +105,6 @@ public partial class HomePage : ContentPage
         }
         else
         {
-            // Обработка ситуации, когда трек не найден
             _secondTrackId = null;
         }
         var songRecommendationRequest = new SongRecommendationRequest

@@ -1,3 +1,4 @@
+using CommunityToolkit.Maui.Alerts;
 using MelodyFusion.DLL.Infrastructure;
 using MelodyFusion.DLL.Models;
 using MelodyFusion.DLL.Models.Response;
@@ -52,7 +53,9 @@ public partial class ProfilePage : ContentPage
         }
         else
         {
-            throw new Exception("Update failed");
+            var toast = Toast.Make("Account was deleated", CommunityToolkit.Maui.Core.ToastDuration.Long, 24);
+            toast.Show();
+            await Shell.Current.GoToAsync($"//{nameof(MainPage)}");
         }
     }
 
@@ -110,6 +113,7 @@ public partial class ProfilePage : ContentPage
         });
         var stream = await result.OpenReadAsync();
         var currentPhoto = await _userService.ChangePhoto(stream);
+
     }
 
     public async void SubClicked(object sender, EventArgs e)

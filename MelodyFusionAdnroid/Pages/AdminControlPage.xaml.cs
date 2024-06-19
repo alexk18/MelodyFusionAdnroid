@@ -1,3 +1,4 @@
+using CommunityToolkit.Maui.Alerts;
 using MelodyFusion.DLL.Infrastructure;
 using MelodyFusion.DLL.Models;
 using MelodyFusion.DLL.Models.Request;
@@ -51,7 +52,8 @@ public partial class AdminControlPage : ContentPage
         var changeRoleResponse = await _adminService.AddAdminRole(_changeRoleRequest);
         if (changeRoleResponse != null)
         {
-            //await Shell.Current.GoToAsync(nameof(AdminControlPage));
+            var toast = Toast.Make("Administrator rights was added", CommunityToolkit.Maui.Core.ToastDuration.Long, 24);
+            toast.Show();
         }
         else
         {
@@ -71,7 +73,8 @@ public partial class AdminControlPage : ContentPage
         var changeRoleResponse = await _adminService.DeleteAdminRole(_changeRoleRequest);
         if (changeRoleResponse != null)
         {
-            //await Shell.Current.GoToAsync(nameof(AdminControlPage));
+            var toast = Toast.Make("Administrator rights was deleted", CommunityToolkit.Maui.Core.ToastDuration.Long, 24);
+            toast.Show();
         }
         else
         {
@@ -87,7 +90,8 @@ public partial class AdminControlPage : ContentPage
         var userResponse = await _adminService.BanUser(userId);
         if (userResponse != null)
         {
-            //await Shell.Current.GoToAsync(nameof(AdminControlPage));
+            var toast = Toast.Make("User is banned", CommunityToolkit.Maui.Core.ToastDuration.Long, 24);
+            toast.Show();
         }
         else
         {
@@ -109,13 +113,11 @@ public partial class AdminControlPage : ContentPage
 
     public async void BackToProfileClicked(object sender, EventArgs e)
     {
-        //Toast.MakeToast("Данные были обновлены").Show(TimeSpan.FromSeconds(2));
         await Shell.Current.GoToAsync($"//{nameof(ProfilePage)}");
     }
 
     public async void GoToStatisticClicked(object sender, EventArgs e)
     {
-        //Toast.MakeToast("Данные были обновлены").Show(TimeSpan.FromSeconds(2));
         await Shell.Current.GoToAsync($"//{nameof(StatisticPage)}");
     }
 }

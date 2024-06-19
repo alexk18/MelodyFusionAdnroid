@@ -35,7 +35,7 @@ public partial class UpdatePasswortPage : ContentPage
         {
             var toast = Toast.Make("Data has been updated", CommunityToolkit.Maui.Core.ToastDuration.Long, 24);
             toast.Show();
-            await Shell.Current.GoToAsync(nameof(ProfilePage));
+            await Shell.Current.GoToAsync($"//{nameof(ProfilePage)}");
         }
         else
         {

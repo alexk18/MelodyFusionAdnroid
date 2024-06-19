@@ -1,4 +1,6 @@
 namespace MelodyFusionAdnroid.Pages;
+
+using CommunityToolkit.Maui.Alerts;
 using MelodyFusion.DLL.Models;
 using MelodyFusion.DLL.Models.Request;
 using MelodyFusion.DLL.Service;
@@ -34,11 +36,14 @@ public partial class RegistrationPage : ContentPage
         var registrationResponse = await _registerService.Registr(registerRequest);
         if (registrationResponse != null)
         {
+            var toast = Toast.Make("Registration successful", CommunityToolkit.Maui.Core.ToastDuration.Long, 24);
+            toast.Show();
             await Shell.Current.GoToAsync($"//{nameof(MainPage)}");
         }
         else
         {
-            throw new Exception("Registration failed");
+            var toast = Toast.Make("Registration failed", CommunityToolkit.Maui.Core.ToastDuration.Long, 24);
+            toast.Show();
         }
 
     }

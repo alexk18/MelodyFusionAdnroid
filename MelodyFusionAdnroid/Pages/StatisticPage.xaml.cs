@@ -4,6 +4,7 @@ using Microcharts;
 using SkiaSharp;
 using Microcharts.Maui;
 using MelodyFusion.DLL.Models.Request;
+using CommunityToolkit.Maui.Alerts;
 
 namespace MelodyFusionAdnroid.Pages;
 
@@ -20,7 +21,6 @@ public partial class StatisticPage : ContentPage
 
     public async void BackToAdminClicked(object sender, EventArgs e)
     {
-        //Toast.MakeToast("Данные были обновлены").Show(TimeSpan.FromSeconds(2));
         await Shell.Current.GoToAsync($"//{nameof(AdminControlPage)}");
     }
 
@@ -54,7 +54,8 @@ public partial class StatisticPage : ContentPage
                 });
             }
         }
-
+        var toast = Toast.Make("Success", CommunityToolkit.Maui.Core.ToastDuration.Long, 24);
+        toast.Show();
         var chart = new BarChart { Entries = entries, LabelTextSize = 40 };
         chartView.Chart = chart;
     }

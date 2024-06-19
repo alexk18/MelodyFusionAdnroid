@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:MelodyFusionAdnroid.ViewModels"
-             xmlns:local="clr-namespace:MelodyFusionAdnroid.Models"
+             xmlns:local="clr-namespace:MelodyFusion.DLL.Models;assembly=MelodyFusion.DLL"
              xmlns:lang="clr-namespace:MelodyFusionAdnroid.Resources.Localization"
              xmlns:extension="clr-namespace:MelodyFusionAdnroid.TranslatorLan"
              x:Class="MelodyFusionAdnroid.Pages.ProfilePage"
@@ -132,12 +132,15 @@
         BackgroundColor="Red" WidthRequest="150" CornerRadius="20"
         Margin="15,20,60,15" />
 
-            <RadioButton x:Name="radioButtonUa" Content="Українська" GroupName="Options" Grid.Row="11" Grid.Column="0" CheckedChanged="OnLanguageChanged"/>
-            <RadioButton x:Name="radioButtonEnglish"  GroupName="Options"  IsChecked="True" Grid.Row="11" Grid.Column="1" CheckedChanged="OnLanguageChanged">
-            <RadioButton.Content>
-                    <Image Source="Image/uk_flag" WidthRequest="24" HeightRequest="24"/>
-            </RadioButton.Content>
-            </RadioButton>
+            <StackLayout Grid.Row="11" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center">
+                <Image Source="Image/uk_flag" WidthRequest="50" HeightRequest="30"/>
+                <RadioButton x:Name="radioButtonUa" GroupName="Options" CheckedChanged="OnLanguageChanged"/>
+            </StackLayout>
+
+            <StackLayout Grid.Row="11" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center">
+                <Image Source="Image/united_kingdom_uk_svgrepo_com" WidthRequest="50" HeightRequest="30"/>
+                <RadioButton x:Name="radioButtonEnglish" GroupName="Options" IsChecked="True" CheckedChanged="OnLanguageChanged"/>
+            </StackLayout>
 
         </Grid>
 
